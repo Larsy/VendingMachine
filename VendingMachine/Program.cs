@@ -28,7 +28,7 @@ namespace VendingMachine
             {
                 Console.WriteLine(item.Info());
             }
-            Console.WriteLine(MachineCoreFuncs.ReturnChange(1346).ToString());
+            Console.WriteLine(MachineCoreFuncs.ReturnChange(1346));
         }
     }
 }

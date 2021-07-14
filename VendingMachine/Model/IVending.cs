@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace VendingMachine
+﻿namespace VendingMachine
 {
     public interface IVending
     {

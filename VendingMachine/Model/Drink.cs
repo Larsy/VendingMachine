@@ -1,29 +1,42 @@
 ﻿using System;
 
-namespace VendingMachine.Model
+namespace VendingMachine
 {
     class Drink : Product
     {
-        public double Size { get; set; }
-
-        public string SizeUnit { get; set; }
-
         public bool Carbonated { get; set; }
 
         public bool SugarFree { get; set; }
 
-        public Drink (ushort id, string name, ushort price,  double size, string sizeuUnit, bool carbonated, bool sugarFree) : base(id, name, price)
+        public Drink(
+            ushort id,
+            string name,
+            ushort price,
+            double size,
+            string sizeUnit,
+            bool carbonated,
+            bool sugarFree,
+            string usageInstructions) : base()
         {
+
+            Id = id;
+            Name = name;
             Price = price;
             Size = size;
-            SizeUnit = sizeuUnit;
+            SizeUnit = sizeUnit;
             Carbonated = carbonated;
             SugarFree = sugarFree;
+            UsageInstructions = usageInstructions;
         }
 
-        public override string Info()
+        public override string Examine()
         {
-            return $"--- Drink Type ---\nId: {Id}\nPrice: {Price} kr\nName: {Name}\nSize: {Size}{SizeUnit}\nCarbonated: {Carbonated}\nSugarFree: {SugarFree}\n";
+            return "";
+        }
+
+        public override string Use()
+        {
+            return "";
         }
     }
 }

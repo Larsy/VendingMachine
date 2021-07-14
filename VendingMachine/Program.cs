@@ -1,15 +1,16 @@
 ﻿using System;
 using VendingMachine.Model;
+
 namespace VendingMachine
 {
     class Program
     {
         static void Main()
         {
-            DrinkButNotProduct();
+            CreateAndShowProducts();
         }
 
-        static void DrinkButNotProduct()
+        static void CreateAndShowProducts()
         {
             IVending machine = new VendingMachine();
             machine.AddProduct(new Drink(PrIdSqncr.NxtPrdctId(), "Fanta", 15, 33, "cl", true, false, "Just open and drink it"));

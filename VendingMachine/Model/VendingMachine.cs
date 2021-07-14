@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VendingMachine.Model
+namespace VendingMachine
 {
-    public class MachineCoreFuncs
+    public class VendingMachine : IVending
     {
         private static readonly ushort[] denominations =
         {
@@ -12,11 +12,31 @@ namespace VendingMachine.Model
 
         private static readonly Dictionary<ushort, ushort> change = new Dictionary<ushort, ushort>();
 
-        private static ushort balance = 0;
+        private  ushort balance = 0;
 
-        public static ushort Balance { get { return balance; } }
+        public ushort Balance { get { return balance; } }
 
-        public static string InsertMoney(ushort amount)
+        public Product Purchase(ushort id)
+        {
+            int indexToFind;
+            indexToFind = Array.FindIndex(Product.products, x => x.Id == id);
+            if (balance >= Product.products[indexToFind].Price)
+            {
+                balance -= Product.products[indexToFind].Price;
+                return Product.products[indexToFind];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Product[] ShowAll()
+        {
+            return Product.products;
+        }
+        
+        public string InsertMoney(ushort amount)
         {
             if (Array.Exists(denominations, d => d == amount))
             {
@@ -28,7 +48,7 @@ namespace VendingMachine.Model
                 return $"Insert attempt: {amount} kr.\nThe machine doesn't accept this money/denomination";
             }
         }
-        public static string ReturnChange(ushort amountToGetBack)
+        public string EndTransaction(ushort amountToGetBack)
         {
             ushort amountLeftToReturn = amountToGetBack;
             ushort denominationCount;
@@ -51,6 +71,12 @@ namespace VendingMachine.Model
                 output += kvp.Key + " kr, " + kvp.Value + " st.\n";
             }
             return output;
+        }
+
+        public void AddProduct(Product productToAdd)
+        {
+            Array.Resize(ref Product.products, Product.products.Length + 1);
+            Product.products[Product.products.Length - 1] = productToAdd;
         }
     }
 }

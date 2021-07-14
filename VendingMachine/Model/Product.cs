@@ -1,37 +1,30 @@
 ﻿using System;
 
-namespace VendingMachine.Model
+namespace VendingMachine
 {
-    abstract class Product
+    public abstract class Product
     {
+        public static Product[] products = new Product[0];
+
         public ushort Id { get; set; }
 
         public string Name { get; set; }
 
         public ushort Price { get; set; }
 
-        public abstract string Info();
+        public double Size { get; set; }
 
-        public Product (ushort id, string name, ushort price)
-        {
-            Id = id;
-            Name = name;
-            Price = price;
-        }
+        public string SizeUnit { get; set; }
 
-        public string Examine(ushort productId)
-        {
-            return productId.ToString();
-        }
+        public string UsageInstructions { get; set; }
 
-        public string Use(ushort productId)
-        {
-            return productId.ToString() ;
-        }
+        public abstract string Examine();
+
+        public abstract string Use();
 
         public override string ToString()
         {
-            return $"Id: {Id}\tName: {Name}\tPrice: {Price}";
+            return $"Id: {Id}\tName: {Name}".PadRight(45) + $"{Size} {SizeUnit}\tPrice: {String.Format("{0, 3}", Price)} kr";
         }
     }
 }

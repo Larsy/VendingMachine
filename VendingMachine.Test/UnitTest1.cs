@@ -1,7 +1,6 @@
 using System;
 using Xunit;
 using Xunit.Abstractions;
-using VendingMachine.Model;
 
 namespace VendingMachine.Test
 {
@@ -29,13 +28,14 @@ namespace VendingMachine.Test
             string reply7;
 
             //Act
-            reply1 = MachineCoreFuncs.InsertMoney(1);
-            reply2 = MachineCoreFuncs.InsertMoney(5);
-            reply3 = MachineCoreFuncs.InsertMoney(10);
-            reply4 = MachineCoreFuncs.InsertMoney(20);
-            reply5 = MachineCoreFuncs.InsertMoney(50);
-            reply6 = MachineCoreFuncs.InsertMoney(200);
-            reply7 = MachineCoreFuncs.InsertMoney(500);
+            IVending machine = new VendingMachine();
+            reply1 = machine.InsertMoney(1);
+            reply2 = machine.InsertMoney(5);
+            reply3 = machine.InsertMoney(10);
+            reply4 = machine.InsertMoney(20);
+            reply5 = machine.InsertMoney(50);
+            reply6 = machine.InsertMoney(100);
+            reply7 = machine.InsertMoney(500);
             output.WriteLine("This is output from {0}", reply1);
             output.WriteLine("This is output from {0}", reply2);
             output.WriteLine("This is output from {0}", reply3);
@@ -43,7 +43,7 @@ namespace VendingMachine.Test
             output.WriteLine("This is output from {0}", reply5);
             output.WriteLine("This is output from {0}", reply6);
             output.WriteLine("This is output from {0}", reply7);
-            balanceAfter = MachineCoreFuncs.Balance;
+            balanceAfter = machine.Balance;
 
             //Assert
             Assert.Equal(686, balanceAfter);

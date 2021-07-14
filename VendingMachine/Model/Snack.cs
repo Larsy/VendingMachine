@@ -1,26 +1,40 @@
 ﻿using System;
 
-namespace VendingMachine.Model
+namespace VendingMachine
 {
     class Snack : Product
     {
-        public double Size { get; set; }
-
-        public string SizeUnit { get; set; }
-
         public bool SugarFree { get; set; }
 
-        public Snack(ushort id, string name, ushort price, double size, string sizeUnit, bool sugarFree) : base(id, name, price)
+        public Snack() {}
+
+
+        public Snack(
+            ushort id,
+            string name,
+            ushort price,
+            double size,
+            string sizeUnit,
+            bool sugarFree,
+            string usageInstructions) : base()
         {
+            Id = id;
+            Name = name;
             Price = price;
             Size = size;
             SizeUnit = sizeUnit;
             SugarFree = sugarFree;
+            UsageInstructions = usageInstructions;
         }
 
-        public override string Info()
+        public override string Examine()
         {
-            return $"--- Snack Type ---\nId: {Id}\nName {Name}\nSize: {Size}{SizeUnit}\nSugarFree: {SugarFree}\n";
+            return "";
+        }
+
+        public override string Use()
+        {
+            return "";
         }
     }
 }

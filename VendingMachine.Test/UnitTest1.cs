@@ -17,7 +17,7 @@ namespace VendingMachine.Test
         public void Test1()
         {
             //Arrange
-            ushort balanceBefore = 0;
+            //ushort balanceBefore = 0;
             ushort balanceAfter;
             string reply1;
             string reply2;

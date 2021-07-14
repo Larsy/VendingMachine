@@ -4,7 +4,7 @@ namespace VendingMachine
 {
     public abstract class Product
     {
-        public static Product[] products = new Product[0];
+        public static Product[] products = new Product[0]; 
 
         public ushort Id { get; set; }
 

@@ -1,13 +1,8 @@
-﻿using System;
-
-namespace VendingMachine
+﻿namespace VendingMachine
 {
     class Snack : Product
     {
         public bool SugarFree { get; set; }
-
-        public Snack() {}
-
 
         public Snack(
             ushort id,

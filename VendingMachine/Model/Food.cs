@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace VendingMachine
+﻿namespace VendingMachine
 {
     class Food : Product
     {
@@ -33,11 +31,5 @@ namespace VendingMachine
         {
             return "";
         }
-
-
-        //public override string Info()
-        //{
-        //    return $"--- Food Type ---\nId: {Id}\nName {Name}\nSize: {Size}{SizeUnit}\nVegetarian: {Vegetarian}\n";
-        //}
     }
 }

@@ -2,14 +2,14 @@
 
 namespace VendingMachine.Model
 {
-    class PrIdSqncr
+    class ProductSequencer
     {
         private static ushort productId = 0;
         public static ushort ProductId
         {
             get { return productId; }
         }
-        public static ushort NxtPrdctId()
+        public static ushort NextId()
         {
             return productId++;
         }

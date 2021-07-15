@@ -12,14 +12,14 @@ namespace VendingMachine
 
         private static readonly Dictionary<ushort, ushort> change = new Dictionary<ushort, ushort>();
 
-        private  ushort balance = 0;
+        private ushort balance = 0;
 
         public ushort Balance { get { return balance; } }
 
         public Product Purchase(ushort id)
         {
             int indexToFind;
-            indexToFind = Array.FindIndex(Product.products, x => x.Id == id);
+            indexToFind = Array.FindIndex(Product.products, p => p.Id == id);
             if (balance >= Product.products[indexToFind].Price)
             {
                 balance -= Product.products[indexToFind].Price;

@@ -22,9 +22,18 @@ namespace VendingMachine
 
         public abstract string Use();
 
+        public string YesNo(bool yesno)
+        {
+            return yesno == true ? "Yes" : "No";
+        }
+
         public override string ToString()
         {
-            return $"Id: {Id}\tName: {Name}".PadRight(45) + $"{Size} {SizeUnit}\tPrice: {String.Format("{0, 3}", Price)} kr";
+            return
+                $"Id: {Id}\t" +
+                $"Name: {Name}".PadRight(45) +
+                $"{Size} {SizeUnit}\t" +
+                $"Price: {String.Format("{0, 3}", Price)} kr";
         }
     }
 }

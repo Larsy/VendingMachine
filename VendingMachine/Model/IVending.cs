@@ -11,7 +11,5 @@
         string InsertMoney(ushort amount);
 
         string EndTransaction(ushort amountToGetBack);
-
-        void AddProduct(Product productToAdd);
     }
 }

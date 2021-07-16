@@ -10,6 +10,8 @@ namespace VendingMachine
             1, 5, 10, 20, 50, 100, 500, 1000
         };
 
+        public static Product[] products = new Product[0];
+
         private static readonly Dictionary<ushort, ushort> change = new Dictionary<ushort, ushort>();
 
         private ushort balance = 0;
@@ -19,11 +21,11 @@ namespace VendingMachine
         public Product Purchase(ushort id)
         {
             int indexToFind;
-            indexToFind = Array.FindIndex(Product.products, p => p.Id == id);
-            if (balance >= Product.products[indexToFind].Price)
+            indexToFind = Array.FindIndex(products, p => p.Id == id);
+            if (balance >= products[indexToFind].Price)
             {
-                balance -= Product.products[indexToFind].Price;
-                return Product.products[indexToFind];
+                balance -= products[indexToFind].Price;
+                return products[indexToFind];
             }
             else
             {
@@ -33,7 +35,7 @@ namespace VendingMachine
 
         public Product[] ShowAll()
         {
-            return Product.products;
+            return products;
         }
         
         public string InsertMoney(ushort amount)
@@ -73,10 +75,10 @@ namespace VendingMachine
             return output;
         }
 
-        public void AddProduct(Product productToAdd)
+        public static void AddProduct(Product productToAdd)
         {
-            Array.Resize(ref Product.products, Product.products.Length + 1);
-            Product.products[Product.products.Length - 1] = productToAdd;
+            Array.Resize(ref products, products.Length + 1);
+            products[products.Length - 1] = productToAdd;
         }
     }
 }

@@ -4,27 +4,25 @@ namespace VendingMachine
 {
     public abstract class Product
     {
-        public static Product[] products = new Product[0]; 
+        public ushort Id { get; protected set; }
 
-        public ushort Id { get; set; }
+        protected string Name { get; set; }
 
-        public string Name { get; set; }
+        public ushort Price { get; protected set; }
 
-        public ushort Price { get; set; }
+        protected double Size { get; set; }
 
-        public double Size { get; set; }
+        protected string SizeUnit { get; set; }
 
-        public string SizeUnit { get; set; }
+        protected string UsageInstructions { get; set; }
 
-        public string UsageInstructions { get; set; }
+        public string Use() { return UsageInstructions; }
 
         public abstract string Examine();
 
-        public abstract string Use();
-
-        public string YesNo(bool yesno)
+        protected string YesNo(bool truefalse)
         {
-            return yesno == true ? "Yes" : "No";
+            return truefalse == true ? "Yes" : "No";
         }
 
         public override string ToString()

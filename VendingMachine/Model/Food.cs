@@ -2,7 +2,7 @@
 {
     class Food : Product
     {
-        public bool Vegetarian { get; set; }
+        private bool Vegetarian { get; set; }
 
         public Food(
             ushort id,
@@ -24,12 +24,18 @@
 
         public override string Examine()
         {
-            return "";
+            return
+                $"Id:\t\t{Id}\n" +
+                $"Name:\t\t{Name}\n" +
+                $"Price:\t\t{Price} kr\n" +
+                $"Size:\t\t{Size} {SizeUnit}\n" +
+                $"Vegetarian:\t{YesNo(Vegetarian)}\n" +
+                $"How to use:\t{UsageInstructions}";
         }
 
-        public override string Use()
-        {
-            return "";
-        }
+        //public override string Use()
+        //{
+        //    return UsageInstructions;
+        //}
     }
 }
